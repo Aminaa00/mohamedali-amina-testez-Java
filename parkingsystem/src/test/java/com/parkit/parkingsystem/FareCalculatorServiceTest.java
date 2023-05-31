@@ -162,5 +162,42 @@ public class FareCalculatorServiceTest {
  
      
         assertEquals(0, ticket.getPrice()); 
+    }
+
+// Calcul ticket voiture 95%
+    @Test 
+    public void calculateFareCarWithDiscount() { 
+     
+        Date inTime = new Date(); 
+        inTime.setTime(System.currentTimeMillis() - (45 * 60 * 1000));  
+        Date outTime = new Date(); 
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false); 
+        ticket.setInTime(inTime); 
+        ticket.setOutTime(outTime); 
+        ticket.setParkingSpot(parkingSpot); 
+     
+        fareCalculatorService.calculateFare(ticket,true); 
+     
+        double expectedPrice = 0.95 * ticket.getPrice(); 
+        assertEquals(expectedPrice, ticket.getPrice(), 0.1); 
 }
+
+
+//Calcul ticket moto 95%
+    @Test 
+    public void calculateFareBikeWithDiscount() { 
+     
+        Date inTime = new Date(); 
+        inTime.setTime(System.currentTimeMillis() - (45 * 60 * 1000));  
+        Date outTime = new Date(); 
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE, false); 
+        ticket.setInTime(inTime); 
+        ticket.setOutTime(outTime); 
+        ticket.setParkingSpot(parkingSpot); 
+     
+        fareCalculatorService.calculateFare(ticket,true); 
+    
+        double expectedPrice = 0.95 * ticket.getPrice(); 
+        assertEquals(expectedPrice, ticket.getPrice(), 0.1); 
+   }
 }
