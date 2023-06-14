@@ -10,10 +10,9 @@ public class FareCalculatorService {
             throw new IllegalArgumentException("Out time provided is incorrect:"+ticket.getOutTime().toString());
         }
 
-        long inTime = ticket.getInTime().getTime(); // Rename variable inTime = OK
-        long outTime = ticket.getOutTime().getTime(); // Rename variable o ?
-        //TODO: Some tests are failing here. 
-        // Need to check if this logic is correct
+        long inTime = ticket.getInTime().getTime();
+        long outTime = ticket.getOutTime().getTime();
+
         long duration = outTime - inTime;
         double durationInTime = (double) (duration) / (1000 * 60 * 60);
 
@@ -40,19 +39,6 @@ public class FareCalculatorService {
             default: 
                 throw new IllegalArgumentException("Unknown Parking Type");
 
-                    /*
-                    If (boolean) {
-                        // IF true
-                        Appliquer prix * 95% --> 5 % de reduc
-                    }else {
-                        // If false
-                        Appliquer prix normal
-                    }
-                    *
-                    boolean ? Appliquer prix * 95%  : Appliquer prix normal;
-
-                    ;
-                    */
             }
         }
     }

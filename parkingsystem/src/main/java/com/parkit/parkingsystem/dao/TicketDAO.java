@@ -87,7 +87,7 @@ public class TicketDAO {
         return false;
     }
 
-//POUR COMPTER NB DE TICKETS ENREGISTRÉS PR UN VÉHICULE
+    //POUR COMPTER NB DE TICKETS ENREGISTRÉS PR UN VÉHICULE
     public int getNbTicket(String vehicleRegNumber) { 
         int count = 0;
         Connection con = null;
