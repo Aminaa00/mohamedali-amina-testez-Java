@@ -89,7 +89,7 @@ public class FareCalculatorServiceTest {
     @Test
     public void calculateFareBikeWithLessThanOneHourParkingTime(){
         Date inTime = new Date();
-        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time should give 3/4th parking fare
+        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
 
@@ -104,7 +104,7 @@ public class FareCalculatorServiceTest {
     @Test
     public void calculateFareCarWithLessThanOneHourParkingTime(){
         Date inTime = new Date();
-        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time should give 3/4th parking fare
+        inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
 
@@ -118,7 +118,7 @@ public class FareCalculatorServiceTest {
     @Test
     public void calculateFareCarWithMoreThanADayParkingTime(){
         Date inTime = new Date();
-        inTime.setTime( System.currentTimeMillis() - (  24 * 60 * 60 * 1000) );//24 hours parking time should give 24 * parking fare per hour
+        inTime.setTime( System.currentTimeMillis() - (  24 * 60 * 60 * 1000) );
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
 
@@ -159,7 +159,6 @@ public class FareCalculatorServiceTest {
         assertEquals(0, ticket.getPrice()); 
     }
 
-// Calcul ticket voiture 95%
     @Test 
     public void calculateFareCarWithDiscount() { 
      
@@ -175,11 +174,10 @@ public class FareCalculatorServiceTest {
      
         double expectedPrice = 0.95 * ticket.getPrice(); 
         assertEquals(expectedPrice, ticket.getPrice(), 0.1); 
-}
+    }
 
 
-//Calcul ticket moto 95%
-    @Test 
+    @Test
     public void calculateFareBikeWithDiscount() { 
      
         Date inTime = new Date(); 
@@ -193,6 +191,6 @@ public class FareCalculatorServiceTest {
         fareCalculatorService.calculateFare(ticket,true); 
     
         double expectedPrice = 0.95 * ticket.getPrice(); 
-        assertEquals(expectedPrice, ticket.getPrice(), 0.1); 
+        assertEquals(expectedPrice, ticket.getPrice(), 0.1);
    }
 }

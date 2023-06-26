@@ -118,9 +118,6 @@ public class ParkingServiceTest {
     }
 
 
-//3.testGetNextParkingNumberIfAvailable : test de l’appel de la méthode getNextParkingNumberIfAvailable()
-//avec pour résultat l’obtention d’un spot dont l’ID est 1 et qui est disponible.
-
     @Test
     public void testGetNextParkingNumberIfAvailable() {
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, true);
@@ -157,9 +154,6 @@ public class ParkingServiceTest {
         verify(parkingSpotDAO, times(0)).getNextAvailableSlot(any(ParkingType.class));
         verify(parkingSpotDAO, times(0)).updateParking(any(ParkingSpot.class));
     }
-
-
-
 
 }
 
